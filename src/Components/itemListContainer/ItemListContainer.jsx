@@ -1,32 +1,31 @@
 import { ItemList } from '../itemList/ItemList';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getFirestore } from "../../Firebase/firebase";
 
 export const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
   const { id } = useParams();
 
-  useEffect( () => {
+  // Remplazo la llamada a json local por la  de firebase
 
-    const apiFetch = async () => {
-
-      const response = await fetch("/productos/productos.json");
-      const json = await response.json();
-
-      let aux = id ? json.filter(element => element.category === id) : json;
-
-      setTimeout(() => {
-        setProducts(aux);
-      })
+  useEffect(() => {
+    async function getData() {
+      const db = getFirestore();
+      const COLLECTION = db.collection("ColeccionProductos");
+      const RESPONSE = await COLLECTION.get();
+      const p = RESPONSE.docs.map((element) => element.data());
+      let aux = id ? p.filter((element) => element.category === id) : p;
+      setProducts(aux);
     }
-    apiFetch();
+    getData();
   }, [id]);
 
   return (
-    <>
+    <div>
       <h1>Bienvenido a Valiendo Burguer, porque Burguer valemos todos!!</h1>
-      <ItemList products={products}/>
-    </>
+      <ItemList products={products} />
+    </div>
   )
 }

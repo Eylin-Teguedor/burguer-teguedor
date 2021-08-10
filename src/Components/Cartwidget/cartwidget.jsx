@@ -31,9 +31,9 @@ const Cartwidget = () => {
     };
 
     return (
-        <>
+        <div>
             {cart.length === 0 ? emptyCart() : notEmptyCart()}
-        </>
+        </div>
     );
 }
 

@@ -4,7 +4,7 @@ import Cartwidget from '../Cartwidget/cartwidget';
 
 export const Navbar = () => {
   return (
-    <>
+    <div>
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Valiendo Burguer</a>
@@ -29,7 +29,7 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 }
 

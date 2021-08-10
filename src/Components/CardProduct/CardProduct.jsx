@@ -11,7 +11,7 @@ export const CardProduct = ({ product }) => {
                     <h5 class="card-title">{product.title}</h5>
                     <p class="card-text"> {product.description}<br />
                      ${product.price}</p>
-                    <a href={`/item/${product.id}`} class="btn btn-primary">Ir al Articulo</a>
+                     <Link to={`/item/${product.id}`} class="btn btn-primary">Ir al Articulo</Link>{' '}
                 </div>
         </div >
     );

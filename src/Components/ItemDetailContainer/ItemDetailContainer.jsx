@@ -1,43 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import ItemDetail from '../itemDetail/ItemDetail';
+import { ItemDetail } from '../itemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { getFirestore } from "../../Firebase/firebase";
 
 
 export const ItemDetailContainer = () => {
   const onAdd = (valor) => {
-    alert(`Has agregado ${valor} productos al carrito`)
+    alert(`Has agregado ${valor} productos al carrito`);
   }
+
 
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [flag, setflag] = useState(false);
 
+  // Remplazo la llamada a json local por la  de firebase
+
   useEffect(() => {
-    const apiFetch = async () => {
-      const response = await fetch("/productos/productos.json");
-      const json = await response.json();
-      let aux = json.find(element => element.id === parseInt(id));
+    async function getData() {
+      const db = getFirestore();
+      const COLLECTION = db.collection("ColeccionProductos");
+      const RESPONSE = await COLLECTION.get();
+      const p = RESPONSE.docs.map((element) => element.data());
+      console.log(p);
 
+      let aux = p.find((element) => element.id === parseInt(id));
 
-      setTimeout(() => {
-        setItem(aux)
-        setflag(true)
-      }, 2000);
-
+      setItem(aux);
+      console.log(aux);
+      setflag(true);
     }
-    apiFetch();
+    getData();
   }, [id]);
 
-
   return (
+
     <>
       {
         flag ?
-          <ItemDetail products={item} onAdd={onAdd} initial={1} stock={5} />
+          (<ItemDetail products={item} onAdd={onAdd} initial={1} stock={5} />)
           :
-          <div>
-              
-          </div>
+          (<div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>)
       }
     </>
   )

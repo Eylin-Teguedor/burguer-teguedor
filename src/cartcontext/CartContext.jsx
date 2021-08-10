@@ -63,6 +63,15 @@ const [cart, setCart] = useState([]);
         setCart([])
     }
 
+    // Para definir el total del carrito
+    const TotalCart = () => {
+     let total = 0;
+        for (const element of cart) {
+         total += element.item.price * element.quantity;
+        }
+        return total;
+    }; 
 
-  return  <CartContext.Provider value={{cart,setCart,addItem, removeItem, clear,updateCart,sizeCart}} > {children} </CartContext.Provider>
+
+    return  <CartContext.Provider value={{cart,setCart,addItem, removeItem, clear,updateCart,sizeCart,TotalCart}} > {children} </CartContext.Provider>
 };  

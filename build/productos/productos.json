@@ -2,38 +2,38 @@
 
     {
         "id":1,
-        "title":"Guitarra",
-        "description":"Guitarra Clasica",
-        "price":12500,
-        "pictureUrl":"https://www.ecomusicweb.com/wp-content/uploads/2020/06/admira-rosario.jpg",
-        "category":"Carne"
+        "title":"Hamburguesa Super",
+        "description":"Hamburguesa de carne de res, cebolla y lechuga",
+        "price":500,
+        "pictureUrl":"../productos/imagenes/img1.png",
+        "category":"Hamburguesas de carne"
     },
 
     {
         "id":2,
-        "title":"Violin",
-        "description":"Violin Clasico de concierto",
-        "price":10990,
-        "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_948622-MLA31580414932_072019-O.webp",
-        "category":"Carne"
+        "title":"Hamburguesa doble",
+        "description":"Hamburguesa de doble carne de res con queso cheddar",
+        "price":700,
+        "pictureUrl":"../productos/imagenes/img2.png",
+        "category":"Hamburguesas de carne"
     },
     
     {
         "id":3,
-        "title":"Oboe Lincoln",
-        "description":"Lcob-601, Con Estuche",
-        "price":34500,
-        "pictureUrl":"https://http2.mlstatic.com/D_NQ_NP_746455-MLA31591145364_072019-O.webp",
-        "category":"Pollo"
+        "title":"Hamburguesa Vegana",
+        "description":"Hamburguesa de falafel de garbanzos",
+        "price":800,
+        "pictureUrl":"../productos/imagenes/img4.png",
+        "category":"Hamburguesas veganas"
     },
 
     {
         "id":4,
-        "title":"Batería Mapex Tornado",
-        "description":"Incluye Fierros, Platillos y Banqueta",
-        "price":59999,
-        "pictureUrl":"https://http2.mlstatic.com/D_NQ_NP_982517-MLA31042120456_062019-O.webp",
-        "category":"Vegana"
+        "title":"Valiendo combo",
+        "description":"1 super hamburguesa con ración de papas fritas",
+        "price":850,
+        "pictureUrl":"../productos/imagenes/img3.png",
+        "category":"Combos"
        
     }
     
